@@ -17,12 +17,12 @@ public class Client {
         System.out.println("My machine's name is : " + machine1.getName());
         machine1.doWork();
 
-        Machine timeMachine = TimeMachineCreator.getInstance().createMachine(oskar);
+        Machine timeMachine = new TimeMachineCreator().createMachine(oskar);
         System.out.println("My machine's name is : " + timeMachine.getName());
         timeMachine.doWork();
 
         Customer pinky = new Customer(2L, "Pinky", "Lavender", "pinky.lavender@live.com");
-        Machine timeMachinePinky = TimeMachineCreator.getInstance().createMachine(pinky);
+        Machine timeMachinePinky = new TimeMachineCreator().createMachine(pinky);
         System.out.println("My machine's name is : " + timeMachinePinky.getName());
         timeMachinePinky.doWork();
     }

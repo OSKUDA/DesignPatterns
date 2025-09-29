@@ -7,7 +7,7 @@ import creational.factory.machine.model.Customer;
 import java.util.Objects;
 import java.util.UUID;
 
-public final class MicrowaveMachineCreator extends MachineCreator {
+public final class MicrowaveMachineCreator implements MachineCreator {
 
     @Override
     public Machine createMachine(Customer customer) {

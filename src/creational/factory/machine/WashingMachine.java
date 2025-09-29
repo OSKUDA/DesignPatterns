@@ -1,6 +1,6 @@
 package creational.factory.machine;
 
-public class WashingMachine implements Machine {
+public final class WashingMachine implements Machine {
 
     private final String name;
 

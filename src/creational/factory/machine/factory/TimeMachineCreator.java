@@ -7,7 +7,7 @@ import creational.factory.machine.model.Customer;
 import java.util.Objects;
 import java.util.UUID;
 
-public class TimeMachineCreator extends MachineCreator {
+public final class TimeMachineCreator extends MachineCreator {
 
     @Override
     public Machine createMachine(Customer customer) {

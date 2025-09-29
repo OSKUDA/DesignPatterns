@@ -1,6 +1,6 @@
 package creational.factory.machine;
 
-public class TimeMachine implements Machine {
+public final class TimeMachine implements Machine {
 
     private final String name;
 

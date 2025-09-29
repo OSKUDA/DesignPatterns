@@ -1,6 +1,6 @@
 package creational.factory.machine;
 
-public class Microwave implements Machine {
+public final class Microwave implements Machine {
 
     private final String name;
 

@@ -8,33 +8,27 @@ import java.util.UUID;
 
 public class TimeMachineCreator extends MachineCreator {
 
-    private final Customer customer;
-
     private TimeMachine timeMachine;
 
     private static TimeMachineCreator timeMachineCreator;
 
-    private TimeMachineCreator(Customer customer) {
-        if (customer == null) {
-            throw new IllegalArgumentException("ERROR : Customer is null");
-        }
-        this.customer = customer;
+    private TimeMachineCreator() {
     }
 
-    public static TimeMachineCreator getInstance(Customer customer) {
+    public static TimeMachineCreator getInstance() {
         if (timeMachineCreator == null) {
             synchronized (TimeMachineCreator.class) {
-                timeMachineCreator = new TimeMachineCreator(customer);
+                timeMachineCreator = new TimeMachineCreator();
             }
         }
         return timeMachineCreator;
     }
 
     @Override
-    public Machine createMachine() {
+    public Machine createMachine(Customer customer) {
         if (timeMachine == null) {
-            synchronized (Machine.class) {
-              timeMachine = new TimeMachine(this.customer.firstName() + "_" + UUID.randomUUID());
+            synchronized (TimeMachine.class) {
+              timeMachine = new TimeMachine(customer.firstName() + "_" + UUID.randomUUID());
             }
         }
         return timeMachine;

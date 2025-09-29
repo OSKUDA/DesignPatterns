@@ -1,4 +1,4 @@
-package creational.factory.factory;
+package creational.factory.button.factory;
 
 import creational.factory.button.Button;
 import creational.factory.button.HtmlButton;

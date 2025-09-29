@@ -1,8 +1,8 @@
 package creational.factory;
 
-import creational.factory.factory.Dialog;
-import creational.factory.factory.HtmlDialog;
-import creational.factory.factory.WindowsDialog;
+import creational.factory.button.factory.Dialog;
+import creational.factory.button.factory.HtmlDialog;
+import creational.factory.button.factory.WindowsDialog;
 
 public class FactoryPattern {
     private static Dialog dialog;

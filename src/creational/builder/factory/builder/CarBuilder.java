@@ -36,6 +36,8 @@ public class CarBuilder implements BaseBuilder {
 
     private CarType carType;
 
+    private long odometer;
+
     @Override
     public void setBrand(String brand) {
         this.brand = brand;
@@ -101,8 +103,13 @@ public class CarBuilder implements BaseBuilder {
         this.carType = carType;
     }
 
+    @Override
+    public void setOdometer(long odometer) {
+        this.odometer = odometer;
+    }
+
     public Car getResult(){
-        return new Car(brand, model, color, fuelType, transmission, doors, seats, price, engine, gps, tires, fuelLevel, carType);
+        return new Car(brand, model, color, fuelType, transmission, doors, seats, price, engine, gps, tires, fuelLevel, carType, odometer);
     }
 
 }

@@ -35,4 +35,6 @@ public interface BaseBuilder {
 
     void setCarType(CarType carType);
 
+    void setOdometer(long odometer);
+
 }

@@ -32,7 +32,9 @@ public class Car {
 
     private CarType carType;
 
-    public Car(String brand, String model, String color, String fuelType, String transmission, int doors, int seats, double price, Engine engine, GPS gps, List<Tire> tires, double fuelLevel, CarType carType) {
+    private long odometer;
+
+    public Car(String brand, String model, String color, String fuelType, String transmission, int doors, int seats, double price, Engine engine, GPS gps, List<Tire> tires, double fuelLevel, CarType carType, long odometer) {
         this.brand = brand;
         this.model = model;
         this.color = color;
@@ -46,11 +48,9 @@ public class Car {
         this.tires = tires;
         this.fuelLevel = fuelLevel;
         this.carType = carType;
+        this.odometer = odometer;
     }
 
-    public void drive(long mileage) {
-        this.engine.drive(mileage);
-    }
     public double getFuelLevel() {
         return fuelLevel;
     }
@@ -160,6 +160,50 @@ public class Car {
 
     public void setCarType(CarType carType) {
         this.carType = carType;
+    }
+
+    public long getOdometer() {
+        return this.odometer;
+    }
+
+    public void drive(long mileage) {
+        if (!this.engine.isStarted()) {
+            System.out.println("Engine is off. Cannot drive.");
+            return;
+        }
+
+        long possibleDistance = this.engine.getMaxDistance(this.fuelLevel);
+
+        long distanceDriven = Math.min(mileage, possibleDistance);
+
+        this.odometer += mileage;
+
+        double fuelUsed = distanceDriven * this.engine.getFuelConsumptionPerKm();
+        consumeFuel(fuelUsed);
+        System.out.println("Drove " + distanceDriven + " km and used " + fuelUsed + " l fuel");
+
+        if ((long) this.fuelLevel <= 0) {
+            this.engine.off();
+            System.out.println("Engine turned off as fuel is empty");
+        }
+    }
+
+    public void startEngine() {
+        if (this.fuelLevel > 0) {
+            this.engine.on();
+            System.out.println("Engine turned on");
+        } else {
+            System.out.println("No fuel! Engine didn't turn on");
+        }
+    }
+
+    public void stopEngine() {
+        if (!this.engine.isStarted()) {
+            System.out.println("Engine is already turned off");
+            return;
+        }
+        this.engine.off();
+        System.out.println("Engine turned off");
     }
 
     @Override

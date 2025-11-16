@@ -84,6 +84,68 @@ public class Manual {
         this.carSection = carSection;
     }
 
+    public void print() {
+        System.out.println("========== CAR MANUAL ==========");
+
+        System.out.println("Pages: " + pages);
+        System.out.println();
+
+        // --- CAR SECTION ---
+        System.out.println("---- Car Section ----");
+        if (carSection != null && !carSection.isEmpty()) {
+            carSection.forEach(System.out::println);
+        } else {
+            System.out.println("No car information available.");
+        }
+        System.out.println();
+
+        // --- DOOR SECTION ---
+        System.out.println("---- Door Section ----");
+        if (doorSection != null && !doorSection.isEmpty()) {
+            System.out.println(doorSection);
+        } else {
+            System.out.println("No door information available.");
+        }
+        System.out.println();
+
+        // --- TIRE SECTION ---
+        System.out.println("---- Tire Section ----");
+        if (tireSection != null && !tireSection.isEmpty()) {
+            tireSection.forEach(System.out::println);
+        } else {
+            System.out.println("No tire information available.");
+        }
+        System.out.println();
+
+        // --- ENGINE SECTION ---
+        System.out.println("---- Engine Section ----");
+        if (engineSection != null && !engineSection.isEmpty()) {
+            engineSection.forEach(System.out::println);
+        } else {
+            System.out.println("No engine information available.");
+        }
+        System.out.println();
+
+        // --- GPS SECTION ---
+        System.out.println("---- GPS Section ----");
+        if (gpsSection != null && !gpsSection.isEmpty()) {
+            gpsSection.forEach(System.out::println);
+        } else {
+            System.out.println("No GPS information available.");
+        }
+        System.out.println();
+
+        // --- TRIP COMPUTER SECTION ---
+        System.out.println("---- Trip Computer Section ----");
+        if (tripComputerSection != null && !tripComputerSection.isEmpty()) {
+            System.out.println(tripComputerSection);
+        } else {
+            System.out.println("No trip computer information available.");
+        }
+
+        System.out.println("===============================");
+    }
+
     @Override
     public String toString() {
         return "Manual{" +

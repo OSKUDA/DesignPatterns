@@ -3,6 +3,7 @@ package creational.builder.factory.builder;
 import creational.builder.factory.enums.CarType;
 import creational.builder.factory.models.Engine;
 import creational.builder.factory.models.GPS;
+import creational.builder.factory.models.Manual;
 import creational.builder.factory.models.Tire;
 
 import java.util.*;
@@ -11,20 +12,23 @@ public class ManualBuilder implements BaseBuilder {
 
     private int pages;
 
-    private List<String> carSection;
+    private final List<String> carSection;
 
     private String doorSection;
 
-    private List<String> tireSection;
+    private final List<String> tireSection;
 
-    private List<String> engineSection;
+    private final List<String> engineSection;
 
-    private List<String> gpsSection;
+    private final List<String> gpsSection;
 
     private String tripComputerSection;
 
     public ManualBuilder() {
         this.carSection = new ArrayList<>();
+        this.tireSection = new ArrayList<>();
+        this.engineSection = new ArrayList<>();
+        this.gpsSection = new ArrayList<>();
     }
 
     @Override
@@ -113,6 +117,15 @@ public class ManualBuilder implements BaseBuilder {
     @Override
     public void setCarType(CarType carType) {
         this.carSection.add("CAR TYPE : " + carType.name() + ", ");
+    }
+
+    @Override
+    public void setOdometer(long odometer) {
+        // do nothing, odometer is not required in manual
+    }
+
+    public Manual getResult() {
+        return new Manual(pages, carSection, doorSection, tireSection, engineSection, gpsSection, tripComputerSection);
     }
 
 }

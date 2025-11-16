@@ -120,6 +120,12 @@ public class Engine {
         this.cylinders = cylinders;
     }
 
+    public double getFuelConsumptionPerKm() {
+        return fuelConsumptionPerKm;
+    }
+
+
+
     @Override
     public String toString() {
         return "Engine{" +

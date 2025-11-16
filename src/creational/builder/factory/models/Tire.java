@@ -1,5 +1,7 @@
 package creational.builder.factory.models;
 
+import java.util.Objects;
+
 public class Tire {
 
     private String brand;
@@ -69,5 +71,18 @@ public class Tire {
                 ", width=" + width +
                 ", diameter=" + diameter +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tire tire = (Tire) o;
+        return Double.compare(width, tire.width) == 0 && diameter == tire.diameter && Objects.equals(brand, tire.brand) && Objects.equals(model, tire.model) && Objects.equals(size, tire.size);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, size, width, diameter);
     }
 }

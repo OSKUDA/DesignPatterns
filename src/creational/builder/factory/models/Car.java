@@ -1,5 +1,7 @@
 package creational.builder.factory.models;
 
+import creational.builder.factory.enums.CarType;
+
 import java.util.List;
 
 public class Car {
@@ -28,7 +30,9 @@ public class Car {
 
     private double fuelLevel;
 
-    public Car(String brand, String model, String color, String fuelType, String transmission, int doors, int seats, double price, Engine engine, GPS gps, List<Tire> tires, double fuelLevel) {
+    private CarType carType;
+
+    public Car(String brand, String model, String color, String fuelType, String transmission, int doors, int seats, double price, Engine engine, GPS gps, List<Tire> tires, double fuelLevel, CarType carType) {
         this.brand = brand;
         this.model = model;
         this.color = color;
@@ -41,6 +45,7 @@ public class Car {
         this.gps = gps;
         this.tires = tires;
         this.fuelLevel = fuelLevel;
+        this.carType = carType;
     }
 
     public void drive(long mileage) {
@@ -149,6 +154,14 @@ public class Car {
         this.tires = tires;
     }
 
+    public CarType getCarType() {
+        return carType;
+    }
+
+    public void setCarType(CarType carType) {
+        this.carType = carType;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
@@ -164,6 +177,7 @@ public class Car {
                 ", gps=" + gps +
                 ", tires=" + tires +
                 ", fuelLevel=" + fuelLevel +
+                ", carType=" + carType +
                 '}';
     }
 }

@@ -15,8 +15,16 @@ public class Box implements Order {
         orders.add(order);
     }
 
-    public void remove(Order order) {
-        orders.remove(order);
+    public boolean remove(Order order) {
+        if (orders.remove(order)) {
+            return true;
+        }
+        for (Order o : orders) {
+            if (o instanceof Box box && box.remove(order)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

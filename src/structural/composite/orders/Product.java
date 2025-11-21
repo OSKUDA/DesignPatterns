@@ -2,9 +2,9 @@ package structural.composite.orders;
 
 public abstract class Product implements Order{
 
-    private String id;
+    private final String id;
 
-    private String model;
+    private final String model;
 
     private double price;
 
@@ -21,16 +21,8 @@ public abstract class Product implements Order{
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getModel() {
         return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
     }
 
     public double getPrice() {

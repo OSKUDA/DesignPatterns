@@ -16,8 +16,8 @@ public class Tree {
         this.treeType = treeType;
     }
 
-    public void draw(Canvas canvas) {
-        treeType.draw(canvas, this.x, this.y);
+    public void draw(Graphics2D graphics2D) {
+        treeType.draw(graphics2D, this.x, this.y);
     }
 
     public int getX() {

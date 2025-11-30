@@ -20,4 +20,8 @@ public class TreeTypeFactory {
                 });
     }
 
+    public static int getTreeTypeSize() {
+        return treeTypes.size();
+    }
+
 }

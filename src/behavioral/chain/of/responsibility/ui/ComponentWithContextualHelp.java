@@ -1,4 +1,4 @@
-package behavioral.chain.of.responsibility;
+package behavioral.chain.of.responsibility.ui;
 
 public interface ComponentWithContextualHelp {
 

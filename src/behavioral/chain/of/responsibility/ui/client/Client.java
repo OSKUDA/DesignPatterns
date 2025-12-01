@@ -1,8 +1,8 @@
-package behavioral.chain.of.responsibility.client;
+package behavioral.chain.of.responsibility.ui.client;
 
-import behavioral.chain.of.responsibility.Button;
-import behavioral.chain.of.responsibility.Dialog;
-import behavioral.chain.of.responsibility.Panel;
+import behavioral.chain.of.responsibility.ui.Button;
+import behavioral.chain.of.responsibility.ui.Dialog;
+import behavioral.chain.of.responsibility.ui.Panel;
 
 /**
  * ============================================================

@@ -6,9 +6,9 @@ import behavioral.iterator.app.social.SocialNetwork;
 
 public class SocialSpammer {
 
-    public SocialNetwork network;
+    private final SocialNetwork network;
 
-    public ProfileIterator iterator;
+    private ProfileIterator iterator;
 
     public SocialSpammer(SocialNetwork network) {
         this.network = network;

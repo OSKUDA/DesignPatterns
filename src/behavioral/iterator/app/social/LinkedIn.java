@@ -34,7 +34,7 @@ public class LinkedIn implements SocialNetwork {
         if (profile != null) {
             return profile.getContacts(contactType);
         }
-        return null;
+        return List.of();
     }
 
     private Profile findContact(String profileEmail) {

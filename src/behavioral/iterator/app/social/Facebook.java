@@ -34,7 +34,7 @@ public class Facebook implements SocialNetwork {
         if (profile != null) {
             return profile.getContacts(contactType);
         }
-        return null;
+        return List.of();
     }
 
     private Profile findProfile(String profileEmail) {

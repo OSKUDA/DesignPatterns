@@ -9,6 +9,66 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * ============================================================
+ *        ITERATOR PATTERN — CLIENT NOTES (SOCIAL DEMO)
+ * ============================================================
+ *
+ * INTENT
+ * ------
+ * Iterator provides a way to traverse a collection **without exposing**
+ * its internal structure. Client uses a common traversal API regardless
+ * of how data is stored or fetched.
+ *
+ *
+ * MAPPING TO THIS EXAMPLE
+ * -----------------------
+ * Aggregate (collection interface):
+ *   SocialNetwork
+ *   - defines factory methods for iterators
+ *     createFriendsIterator(email)
+ *     createCoworkersIterator(email)
+ *
+ * Concrete Aggregates:
+ *   Facebook, LinkedIn
+ *   - store Profile data differently (simulated remote APIs)
+ *   - create their own iterator implementations
+ *
+ * Iterator interface:
+ *   ProfileIterator
+ *   - hasNext(), getNext(), reset()
+ *
+ * Concrete Iterators:
+ *   FacebookIterator, LinkedInIterator
+ *   - encapsulate traversal + lazy network loading
+ *   - fetch contacts only when iteration begins
+ *
+ * Client:
+ *   SocialSpammer / Client
+ *   - works only with SocialNetwork + ProfileIterator
+ *   - unaware of concrete storage/API details
+ *
+ *
+ * CLIENT FLOW
+ * -----------
+ * 1. Choose a SocialNetwork (Facebook/LinkedIn).
+ * 2. Create SocialSpammer with the chosen network.
+ * 3. Spammer asks network for the right iterator:
+ *        friendsIterator / coworkersIterator
+ * 4. Iterate using common loop:
+ *        while(iterator.hasNext()) { iterator.getNext(); }
+ * 5. Send spam to each returned Profile.
+ *
+ *
+ * KEY TAKEAWAYS
+ * -------------
+ * ✔ Traversal logic is separated from collection internals.
+ * ✔ Same iterator API works across different data sources.
+ * ✔ New social networks can be added without changing spammer/client.
+ * ✔ Lazy loading makes iteration efficient for remote collections.
+ *
+ * ============================================================
+ */
 public class Client {
 
     public static Scanner scanner = new Scanner(System.in);
